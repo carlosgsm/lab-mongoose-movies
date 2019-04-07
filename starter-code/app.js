@@ -1,7 +1,5 @@
 require('dotenv').config();
 
-// PRUEBA
-
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
@@ -54,7 +52,25 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
-app.use('/', index);
+const celebrities = require('./routes/celebrities');//mia
 
+app.use('/', index);
+app.use('/celebrities', celebrities);//mia
+
+///mios
+
+
+// app.get('/celebrities', (req, res) => {
+//   const trackId = req.params.albumId;
+
+  // spotifyApi.getAlbumTracks(trackId, { limit : 5, offset : 1 })
+  // .then(function(data) {
+  //   const tracks = data.body.items;
+   
+  //   res.render('tracks',{tracks} )
+  // }, function(err) {
+  //   console.log('Something went wrong!', err);
+  // });
+// })
 
 module.exports = app;

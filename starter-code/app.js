@@ -43,7 +43,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-
+hbs.registerPartials(path.join(__dirname, './views/partials'))//
 
 
 // default value for title local
@@ -56,6 +56,8 @@ const celebrities = require('./routes/celebrities');//mia
 
 app.use('/', index);
 app.use('/celebrities', celebrities);//mia
+app.use('/celebrities/delete/:id', celebrities);//mia
+
 
 ///mios
 
